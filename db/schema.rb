@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 2020_08_21_210030) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "imageUrl", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "delayed_jobs", id: :serial, force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -46,13 +53,6 @@ ActiveRecord::Schema.define(version: 2020_08_21_210030) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "imageUrl", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "dishes", force: :cascade do |t|

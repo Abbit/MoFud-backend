@@ -7,11 +7,15 @@ Contains a plug an play Administration console (thanks to [ActiveAdmin](https://
 1. Create your `database.yml` and `application.yml` file
 1. Have docker and docker-compose installed
 1. build and run the application with `docker-compose up`
-1. Run `docker-compose exec web bash`
+1. Run `docker-compose run --entrypoint="" web bash` to attach to container console
 1. Run `yarn` to install webpack needs
 1. Run `rails db:create db:migrate`
-1. Run `rspec` and make sure all tests pass
+1. Run `rails db:seed`
 1. You can now try your REST services!
+
+Admin Creds
+email: admin@example.com
+password: password
 
 ## Gems
 
