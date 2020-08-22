@@ -18,22 +18,13 @@ module App
 
     config.autoload_paths += %W[#{config.root}/lib]
 
-    ActionMailer::Base.smtp_settings = {
-      address: 'smtp.sendgrid.net',
-      port: 25,
-      domain: 'www.api.com',
-      authentication: :plain,
-      user_name: ENV['SENDGRID_USERNAME'],
-      password: ENV['SENDGRID_PASSWORD']
-    }
-    config.action_mailer.default_url_options = { host: ENV['SERVER_URL'] }
-    config.action_mailer.default_options = {
-      from: 'no-reply@api.com'
-    }
-
     config.generators do |g|
       g.test_framework :rspec
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
+      g.scaffold_stylesheet false
+      g.template_engine false
+      g.helper false
+      g.assets false
     end
   end
 end

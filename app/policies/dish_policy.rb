@@ -1,0 +1,2 @@
+class DishPolicy < ApplicationPolicy
+end

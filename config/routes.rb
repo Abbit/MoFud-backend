@@ -12,13 +12,16 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       get :status, to: 'api#status'
 
+      resources :categories, only: [:index]
+
+      resources :dishes, only: [:index]
+
+      resources :orders, only: [:create]
+
       devise_scope :user do
         resource :user, only: %i[update show] do
           get :profile
         end
-      end
-      resources :settings, only: [] do
-        get :must_update, on: :collection
       end
     end
   end
